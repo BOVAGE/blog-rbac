@@ -1,0 +1,20 @@
+entity user {
+}
+
+entity organization {
+   relation admin  @user
+   relation member @user
+
+   action create_post = admin or member
+   action delete = admin
+}
+
+entity post {
+   
+   relation author @user
+   relation organization @organization
+
+   action edit = author or organization.admin
+   action delete = author or organization.admin
+
+}
