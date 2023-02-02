@@ -45,7 +45,7 @@ def delete_post_check(view_func):
 def edit_post_check(view_func):
     @wraps(view_func)
     def wrapper(*args, **kwargs):
-        if request.method == "DELETE":
+        if request.method == "PUT":
             # call permify func to check for permission
             can = permify.check_permission(
                 {"type": "post", "id": str(kwargs.get("post_id"))},

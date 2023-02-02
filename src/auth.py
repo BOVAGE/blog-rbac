@@ -57,7 +57,7 @@ def me():
             jsonify(
                 {
                     "status": "SUCCESS",
-                    "message": "User logged in info retrieved successfully",
+                    "message": "Logged in user info retrieved successfully",
                     "data": {"username": current_user.username},
                 }
             ),

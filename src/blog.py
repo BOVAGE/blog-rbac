@@ -75,9 +75,9 @@ def create_post(organ_id):
     )
 
 
+@blog.route("/posts/<int:post_id>", methods=["GET", "PUT", "DELETE"])
 @edit_post_check
 @delete_post_check
-@blog.route("/posts/<int:post_id>", methods=["GET", "PUT", "DELETE"])
 def post(post_id):
     post = Post.query.get(post_id)
     if post is None:
@@ -135,10 +135,9 @@ def post(post_id):
             jsonify(
                 {
                     "status": "SUCCESS",
-                    "message": f"Post with id: {post_id} retrieved successfully",
+                    "message": f"Post with id: {post_id} deleted successfully",
                     "data": None,
                 }
             ),
-            200,
+            204,
         )
-    return jsonify({"status": "Up and running"}), 200
